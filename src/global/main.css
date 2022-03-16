@@ -1,0 +1,84 @@
+/* BASIC */
+body{
+    background-color: rgb(24, 24, 24);
+    color:white;
+    overflow-y: scroll;
+}
+:root {
+    color-scheme: dark;
+}
+/*  */
+
+.form-control, .form-select, .form-control:focus{
+    background-color: rgb(24, 24, 24);
+    color:white;
+    border-color: rgb(85, 85, 85);
+}
+label{
+    margin-bottom: .2rem;
+}
+.form-select{
+    background:rgb(24, 24, 24) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px !important;
+}
+
+.card{
+    background-color: rgb(36, 36, 36);
+    color:white;
+    border-color: rgb(85, 85, 85);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* CARD */
+.card {
+    margin-bottom: 20px;
+}
+.card-footer{
+    border-color: rgb(85, 85, 85);
+}
+
+.card-footer .btn{
+    margin-left: 10px;
+    float:right;
+}
+label{
+    margin-top: 10px;   
+    color:white; 
+}
+
+::placeholder {
+    color: red;
+}
+  
+.btn-submit{
+    float:right;
+    border:1px solid rgb(85, 85, 85);
+    color:white;
+    background-color: rgb(24, 24, 24);
+}
+.btn-submit:hover{
+    background-color: rgb(24, 24, 24);
+    color:white;
+    border:1px solid rgb(85, 85, 85);
+}
+
+/*TABLE*/
+table{
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    border:1px solid rgb(85, 85, 85);
+    
+}
+td, th{
+    padding: 10px;
+    border:1px solid rgb(85, 85, 85);
+}
+
+th{
+    color:white;
+    background-color: rgb(36, 36, 36);
+}
+tr{
+    background-color: rgb(24, 24, 24);
+}
