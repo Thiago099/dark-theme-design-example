@@ -105,6 +105,10 @@ export default {
       type: Boolean,
       default: false,
     },	
+    per_page: {
+      type: Number,
+      default: 13,
+    },
   },
   methods:{
     firstUpper(str : string)
@@ -213,7 +217,6 @@ export default {
       page:1,
       pages:1,
       page_display:15,
-      per_page:8,
       search:'',
       last_search:'',
       display_search:'',
