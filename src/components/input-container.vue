@@ -25,7 +25,8 @@
     </div>
 </template>
 <script>
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
     name:'input-container',
     props:{
         name: {
@@ -65,7 +66,7 @@ export default {
             }
         },
     }
-}
+})
 </script>
 <style scoped>
 .none{

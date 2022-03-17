@@ -8,15 +8,15 @@
 </template>
 <script lang="ts">
 import router from '@/global/router'
-
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: 'App',
   data(){
     return{
       router
     }
   }
-}
+})
 </script>
 <style >
 #app {
