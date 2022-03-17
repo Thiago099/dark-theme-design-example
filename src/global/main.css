@@ -7,7 +7,10 @@ body{
 :root {
     color-scheme: dark;
 }
-/*  */
+.no-select::selection, .no-select *::selection {
+background-color: Transparent;
+}
+/* form  */
 
 .form-control, .form-select, .form-control:focus{
     background-color: rgb(24, 24, 24);
@@ -21,6 +24,9 @@ label{
     background:rgb(24, 24, 24) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px !important;
 }
 
+
+
+/* CARD */
 .card{
     background-color: rgb(36, 36, 36);
     color:white;
@@ -28,13 +34,15 @@ label{
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
-/* CARD */
+.card-body{
+    padding: 30px;
+}
 .card {
     margin-bottom: 20px;
 }
-.card-footer{
+.card-header{
     border-color: rgb(85, 85, 85);
+    padding-top: 15px;
 }
 
 .card-footer .btn{
@@ -49,36 +57,46 @@ label{
 ::placeholder {
     color: red;
 }
+/* button */
   
 .btn-submit{
     float:right;
     border:1px solid rgb(85, 85, 85);
     color:white;
-    background-color: rgb(24, 24, 24);
-}
-.btn-submit:hover{
-    background-color: rgb(24, 24, 24);
-    color:white;
-    border:1px solid rgb(85, 85, 85);
-}
-
-/*TABLE*/
-table{
-    margin-top: 15px;
-    width: 100%;
-    text-align: center;
-    border:1px solid rgb(85, 85, 85);
-    
-}
-td, th{
-    padding: 10px;
-    border:1px solid rgb(85, 85, 85);
-}
-
-th{
-    color:white;
     background-color: rgb(36, 36, 36);
 }
-tr{
-    background-color: rgb(24, 24, 24);
+.btn-submit:hover{
+    background-color: rgb(36, 36, 36);
+    color:white;
+    border:1px solid rgb(85, 85, 85);
+}
+
+/* COLORS */
+
+.danger{
+    color:rgb(255,50,50)
+}	
+.success{
+    color:rgb(50,170,50)
+}
+.info{
+    color: rgb(50, 170, 190);
+}
+.warning{
+    color:rgb(255,170,50)
+}
+.danger-hover, .success-hover, .info-hover, .warning-hover{
+    transition: all .2s ease-in-out;
+}
+.danger-hover:hover{
+    color:rgb(255,50,50)
+}	
+.success-hover:hover{
+    color:rgb(50,170,50)
+}
+.info-hover:hover{
+    color: rgb(50, 170, 190);
+}
+.warning-hover:hover{
+    color:rgb(255,170,50)
 }

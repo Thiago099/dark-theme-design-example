@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <table-control :data="data" :fields="fields"></table-control>
+    <table-control :data="data" :fields="fields" ></table-control>
   </div>
 </template>
 <script lang="ts">

@@ -23,5 +23,71 @@ export const data : user[] = [
         name: 'jane doe',
         email: 'jane.doe@gmai.com',
         phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
+    },
+    {
+        id: 2,
+        name: 'jane doe',
+        email: 'jane.doe@gmai.com',
+        phone: '+55 (11) 88888-8888',
     }
 ]
