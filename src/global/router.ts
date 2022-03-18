@@ -1,21 +1,44 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/form-test.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Form',
-    component: Home
-  },
-  {
-    path: '/table',
-    name: 'Table',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/table-test.vue')
-  }
+  
+  // {
+  //   path: '/',
+  //   name: 'Table',
+  //   component: () => import('@/views/table-test.vue')
+  // },
+  // {
+  //   path: '/form/:id',
+  //   name: 'Form',
+  //   component:  () => import('@/views/form-test.vue')
+  // }
 ]
+import cruds from './cruds'
+
+cruds.forEach(({name,data,table_fields,form_fields,title}) => {
+  routes.push({
+    path: '/'+name,
+    name: name,
+    component: () => import('@/components/crud-list.vue'),
+    props: {
+      name,
+      data,
+      table_fields,
+      title
+    }
+  })
+  routes.push({
+    path: '/'+name+'/edit/:id',
+    name: name+"edit",
+    component: () => import('@/components/crud-edit.vue'),
+    props: {
+      name,
+      data,
+      form_fields,
+      title
+    }
+  })
+})
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

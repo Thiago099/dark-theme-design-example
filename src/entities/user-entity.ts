@@ -5,89 +5,52 @@ export interface user{
     phone: string;
 }
 
-export const fields : string[] = [
+export const table_fields : string[] = [
     "name",
     "email",
     "phone"
 ]
 
-export const data : user[] = [
+export const form_fields = [
     {
-        id: 1,
-        name: 'jhon doe',
-        email: 'jhon.doe@gmai.com',
-        phone: '+55 (11) 99999-9999',
+        name:"Basic Information",
+        fields:[
+            {
+                name: "Name",
+                field:"name",
+                placeholder: "Enter your name",
+                col:"col-4",
+                required:true,
+                blur:{
+                    message:"Name is too short",
+                    condition(item:string){
+                        return (item || '').length < 3;
+                    }
+                }
+                
+            } ,
+            {
+                name: "Email",
+                field:"email",
+                placeholder: "Enter email",
+                col:"col-4",
+                required:true,
+                info:"We will never share your email with anyone else.",
+                submit:{
+                    message:"Invalid email",
+                    condition(item:string){
+                        return !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(item);
+                    }
+
+                }
+            },
+            {
+                name: "Phone number",
+                field:"phone",
+                placeholder: "Enter phone number",
+                col:"col-4",
+                required:true,
+            },
+        ] as any[]
     },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    },
-    {
-        id: 2,
-        name: 'jane doe',
-        email: 'jane.doe@gmai.com',
-        phone: '+55 (11) 88888-8888',
-    }
 ]

@@ -6,6 +6,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import './global/main.css'
 import components from './global/components'
 
+
 createApp(App)
     .use(router)
     .mixin(components)

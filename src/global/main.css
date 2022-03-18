@@ -1,6 +1,6 @@
 /* BASIC */
 body{
-    background-color: rgb(24, 24, 24);
+    background-color: var(--dark);
     color:white;
     overflow-y: scroll;
 }
@@ -10,27 +10,30 @@ body{
 .no-select::selection, .no-select *::selection {
 background-color: Transparent;
 }
+.no-select{
+    cursor: default;
+}
 /* form  */
 
 .form-control, .form-select, .form-control:focus{
-    background-color: rgb(24, 24, 24);
+    background-color: var(--dark);
     color:white;
-    border-color: rgb(85, 85, 85);
+    border-color: var(--bright);
 }
 label{
     margin-bottom: .2rem;
 }
 .form-select{
-    background:rgb(24, 24, 24) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px !important;
+    background:var(--dark) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px !important;
 }
 
 
 
 /* CARD */
 .card{
-    background-color: rgb(36, 36, 36);
+    background-color: var(--medium);
     color:white;
-    border-color: rgb(85, 85, 85);
+    border-color: var(--bright);
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -41,7 +44,7 @@ label{
     margin-bottom: 20px;
 }
 .card-header{
-    border-color: rgb(85, 85, 85);
+    border-color: var(--bright);
     padding-top: 15px;
 }
 
@@ -61,42 +64,43 @@ label{
   
 .btn-submit{
     float:right;
-    border:1px solid rgb(85, 85, 85);
+    border:1px solid var(--bright);
     color:white;
-    background-color: rgb(36, 36, 36);
+    background-color: var(--medium);
 }
 .btn-submit:hover{
-    background-color: rgb(36, 36, 36);
+    background-color: var(--medium);
     color:white;
-    border:1px solid rgb(85, 85, 85);
+    border:1px solid var(--bright);
 }
 
 /* COLORS */
 
+*{
+    --dark-selection:rgb(20, 25, 34);
+    --dark:rgb(24, 24, 24);
+    --medium:rgb(36, 36, 36);
+    --bright:rgb(85, 85, 85);
+}
 .danger{
-    color:rgb(255,50,50)
+    --color: rgb(255,50,50);
 }	
 .success{
-    color:rgb(50,170,50)
+    --color: rgb(50,170,50);
 }
 .info{
-    color: rgb(50, 170, 190);
+    --color: rgb(50, 170, 190);
 }
 .warning{
-    color:rgb(255,170,50)
+    --color: rgb(255, 170, 50);
 }
-.danger-hover, .success-hover, .info-hover, .warning-hover{
+.hover{
     transition: all .2s ease-in-out;
+    color:#aaa;
 }
-.danger-hover:hover{
-    color:rgb(255,50,50)
-}	
-.success-hover:hover{
-    color:rgb(50,170,50)
+.hover:hover{
+    color:var(--color)
 }
-.info-hover:hover{
-    color: rgb(50, 170, 190);
-}
-.warning-hover:hover{
-    color:rgb(255,170,50)
+.inert{
+    color:var(--color)
 }

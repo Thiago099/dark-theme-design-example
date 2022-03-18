@@ -12,7 +12,7 @@
             </slot>
         </div>
         <small class="form-text text-muted"> 
-            <span :class="displayMessage">
+            <span :class="displayMessage" class="inert">
                 <i 
                 class="fa" 
                 :class="
@@ -30,6 +30,10 @@ export default defineComponent({
     name:'input-container',
     props:{
         name: {
+            type: String,
+            default: 'name'
+        },
+        child:{
             type: String,
             default: 'name'
         },
@@ -65,7 +69,22 @@ export default defineComponent({
                 return "none";
             }
         },
-    }
+    },
+    mounted()
+    {
+        const element = document.getElementById(this.child);
+        if(element)
+        {
+            if(element.tagName == 'INPUT')
+            {
+                element.classList.add('form-control');
+            }
+            else if(element.tagName == 'SELECT')
+            {
+                element.classList.add('form-select');
+            }
+        }
+    },
 })
 </script>
 <style scoped>

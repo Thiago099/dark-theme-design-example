@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div style="max-width:800px;margin:auto;margin-bottom:50px">
+  <div style="max-width:800px;margin:auto;margin-bottom:50px;margin-top:40px">
   <div style="margin:20px 0 20px 0;">
             <div v-html="display_search" class="phantom-input-overlay"></div>
             <i aria-hidden="true" class="fa fa-search fa-fw search-icon"></i>
@@ -26,8 +26,10 @@
             {{ row[col] }}
           </td>
           <td class="options" v-if="display_options">
-            <i class="fa fa-edit info-hover"></i>
-            <i class="fa fa-trash danger-hover"></i>
+            <router-link :to="`/${edit_link}/${row.id}`">
+                <i class="fa fa-edit info hover"></i>
+            </router-link>
+            <i @click="remove(row)" class="fa fa-trash danger hover"></i>
           </td>
         </tr>
         <tr v-for="i in display.length <= per_page ? (per_page - display.length) : 0" :key="i">
@@ -53,7 +55,7 @@
                       </a>
                   </li>
                   <li class="page-item">
-                      <a class="page-link disabled" href="#" v-if="display_pages[0] != 1 && display_pages[0] != 2">
+                      <a class="page-link disabled no-select"  v-if="display_pages[0] != 1 && display_pages[0] != 2">
                           <span aria-hidden="true">
                               ...
                           </span>
@@ -65,7 +67,7 @@
                       </a>
                   </li>
                   <li class="page-item" v-if="display_pages[display_pages.length-1] != pages && display_pages[display_pages.length-1] != pages-1">
-                      <a class="page-link disabled" href="#" >
+                      <a class="page-link disabled no-select">
                           <span aria-hidden="true">
                               ...
                           </span>
@@ -108,6 +110,10 @@ export default defineComponent({
     per_page: {
       type: Number,
       default: 13,
+    },
+    edit_link: {
+      type: String,
+      default: "",
     },
   },
   methods:{
@@ -203,6 +209,11 @@ export default defineComponent({
           }
           this.updatePagination()
       },
+      remove(row: any){
+          this.$emit('remove', row);
+          this.display_data = this.display_data.filter((item:any) => item != row);
+          this.updateSearch()
+      },
   },
   created(){
     this.updatePagination()
@@ -295,13 +306,13 @@ export default defineComponent({
 }
 
 .page-link{
-  background-color: rgb(36, 36, 36);
+  background-color: var(--medium);
   color:white;
-  border-color: rgb(85, 85, 85)
+  border-color: var(--bright)
 }
 
 .btn-blue{
-  background-color: rgb(24, 24, 24);
+  background-color: var(--dark);
   color:white;
 }
 /* search */
@@ -339,7 +350,7 @@ table{
 }
 td, th{
     padding: 10px;
-    border:1px solid rgb(85, 85, 85);
+    border:1px solid var(--bright);
 }
 
 th, td{
@@ -372,16 +383,16 @@ tr:last-child td:last-child{
 
 th{
     color:white;
-    background-color: rgb(36, 36, 36);
+    background-color: var(--medium)
 }
 td{
     color:#aaa;
 }
 tr{
-    background-color: rgb(24, 24, 24);
+    background-color: var(--dark);
 }
 tr:hover{
-    background-color: rgb(20, 25, 34);
+    background-color: var(--dark-selection);
 }
 .table-header{
     cursor: pointer;

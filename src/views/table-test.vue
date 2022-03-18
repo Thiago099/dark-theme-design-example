@@ -1,16 +1,20 @@
 <template>
   <div class="container">
-    <table-control :data="data" :fields="fields" ></table-control>
+    <header-control button="new" href="/form/0"></header-control>
+    <table-control :data="data" :fields="table_fields" :display_options="true" edit_link="form"></table-control>
   </div>
 </template>
 <script lang="ts">
-import { fields, data } from '@/entities/user-entity';
+import { table_fields, data } from '@/entities/user-entity';
 export default{
   data(){
     return {
       data,
-      fields
+      table_fields
     }
   },
 }
 </script>
+<style scoped>
+
+</style>

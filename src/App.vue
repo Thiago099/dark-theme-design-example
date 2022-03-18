@@ -1,10 +1,11 @@
 <template>
   <div id="nav">
-    <div v-for="(route, index) in router.options.routes" :key="route.name" class="nav-item">
-      <router-link :to="route.path">{{ route.name }}</router-link> <span v-if="index != router.options.routes.length-1">| </span>
+    <div v-for="(route, index) in router.options.routes.filter(item => !item.name.includes('edit'))" :key="route.name" class="nav-item">
+      <router-link :to="route.path">{{ route.name }}</router-link> <span v-if="index != router.options.routes.filter(item => !item.name.includes('edit')).length-1">| </span>
     </div>
+    
   </div>
-  <router-view/>
+  <router-view style="margin-bottom:30px"/>
 </template>
 <script lang="ts">
 import router from '@/global/router'
@@ -13,7 +14,7 @@ export default defineComponent({
   name: 'App',
   data(){
     return{
-      router
+      router:router
     }
   }
 })
@@ -37,6 +38,7 @@ a{
    bottom: 10px;
    width: 100%;
    text-align: center;
+   z-index: 100;
 }
 
 #nav a {
