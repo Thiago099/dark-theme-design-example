@@ -5,7 +5,8 @@
   </div>
 </template>
 <script lang="ts">
-import { table_fields, data } from '@/entities/user-entity';
+import { table_fields } from '@/entities/user-entity';
+import data from '@/entities/user-data.json';
 export default{
   data(){
     return {

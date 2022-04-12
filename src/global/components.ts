@@ -1,5 +1,5 @@
 import inputContainer from '@/components/input-container.vue';
-import tableControl from '@/components/table-control.vue';
+import tableControl from '@/components/table/tableControl.vue';
 import headerControl from  '@/components/header-control.vue'
 import cardControl from '@/components/card-control.vue';
 import formControl from '@/components/form-control.vue';

@@ -93,6 +93,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { paginationMethods, paginationData } from "./pagination";
+import { searchMethods, searchData } from "./search";
+import { sortMethods, sortData } from "./sort";
 export default defineComponent({
   props: {
     data: {
@@ -116,123 +119,34 @@ export default defineComponent({
       default: "",
     },
   },
+  data(){
+    return {
+      ...sortData,
+      ...paginationData,
+      ...searchData,
+      display_data : this.data,
+      filtered: this.data,
+      display: this.data,
+    } 
+  },
   methods:{
+    ...paginationMethods,
+    ...searchMethods,
+    ...sortMethods,
     firstUpper(str : string)
     {
         return str.charAt(0).toUpperCase() + str.slice(1);
     },
-    sortTable(column : string){
-        if(this.sort_column == column) 
-        {
-            this.sort_order = !this.sort_order;
-        }
-        else
-        {
-            this.sort_order = true
-            this.sort_column = column;
-        }
-        // reduce display data into display
-        this.filtered.sort((a : any, b : any) => 
-        {
-            if(a[this.sort_column] < b[this.sort_column])
-            {
-                return this.sort_order ? -1 : 1;
-            }
-            if(a[this.sort_column] > b[this.sort_column])
-            {
-                return this.sort_order ? 1 : -1;
-            }
-            return 0;
-        })
-        this.updatePagination()
+    remove(row: any){
+        this.$emit('remove', row);
+        this.display_data = this.display_data.filter((item:any) => item != row);
+        this.updateSearch()
     },
-    setPage(page: number){
-            this.page = page;
-            this.updatePagination();
-        },
-        nextPage(){
-            this.page++;
-            this.updatePagination();
-        },
-        prevPage(){
-            this.page--;
-            this.updatePagination();
-        },
-        updatePagination(){
-          if(this.page == 0)
-          {
-            this.page = this.pages;
-          }
-            let comeco =
-              this.per_page * (this.page - 1)
-            let final =
-              this.per_page * this.page
-            if (comeco >= this.filtered.length) {
-              this.page = 1
-              comeco =
-                this.per_page * (this.page - 1)
-              final = this.per_page * this.page
-            }
-            this.pages = Math.ceil(this.filtered.length / this.per_page)
-            this.display = this.filtered.slice(comeco, final)
-        },
-        updateSearch(){
-          const filtered = this.display_data.filter((item:any) => {
-              for(const key in this.fields)
-              {
-                  if(item[this.fields[key] as string].toString().toLowerCase().includes(this.search.toLowerCase()))
-                  {
-                      return true;
-                  }
-              }
-              return false;
-          });
-          if(filtered.length != 0 || this.display_data.length == 0)
-          {
-              this.filtered = filtered;
-              this.last_search = this.search;
-          }
-          const search = this.search.search(this.last_search);
-          if(search == 0)
-          {
-              this.display_search = `<font color="white">${this.last_search}</font><font color="red">${this.search.replace(this.last_search,'')}</font>`;
-          }
-          else if(search >= 0)
-          {
-              const mid = this.search.split(this.last_search);
-              this.display_search = `<font color="red">${mid[0]}</font><font color="white">${this.last_search}</font><font color="red">${mid[1]}</font>`;
-
-          }
-          else
-          {
-              this.display_search = `<font color="red">${this.search}</font>`;
-          }
-          this.updatePagination()
-      },
-      remove(row: any){
-          this.$emit('remove', row);
-          this.display_data = this.display_data.filter((item:any) => item != row);
-          this.updateSearch()
-      },
   },
   created(){
     this.updatePagination()
   },
-  data(){
-    return {
-      sort_column : '',
-      sort_order : true,
-      display_data : this.data,
-      filtered: this.data,
-      display: this.data,
-      page:1,
-      pages:1,
-      page_display:15,
-      search:'',
-      last_search:'',
-      display_search:'',
-    } 
-  },
+  
    computed: {
         display_pages(){
             const result = []
