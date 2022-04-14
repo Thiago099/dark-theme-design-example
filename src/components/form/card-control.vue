@@ -21,3 +21,6 @@ export default defineComponent({
     }
 })
 </script>
+<style scoped lang="less">
+@import 'card';
+</style>

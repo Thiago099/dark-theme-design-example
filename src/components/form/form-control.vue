@@ -102,14 +102,6 @@ export default defineComponent({
   }
 });
 </script>
-<style scoped>
-.form{
-  --color: rgb(85, 85, 85)
-}
-.error{
-  --color: rgb(255,50,50);
-}
-input, input:focus{
-  border-color: var(--color)
-}
+<style scoped lang="less">
+@import 'form';
 </style>
