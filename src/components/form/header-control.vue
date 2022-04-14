@@ -29,7 +29,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 .header{
   width:100%;
@@ -41,8 +41,8 @@ export default defineComponent({
 
 .back-button{
     float: right;
-    background-color: var(--medium);
-    border:1px solid var(--bright);
+    background-color: @medium;
+    border:1px solid @bright;
     margin-top: -2px;
     padding-bottom: 2px;
     padding-right: 20px;
@@ -57,8 +57,8 @@ export default defineComponent({
 .add-button{
     font-size: 20pt;
     float: right;
-    background-color: var(--medium);
-    border:1px solid var(--bright);
+    background-color: @medium;
+    border:1px solid @bright;
     --margin: 15px;
     padding-top: 10px;
     padding-bottom: 7px;

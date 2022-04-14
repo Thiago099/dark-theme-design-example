@@ -3,7 +3,7 @@
     
     <card-control title="Basic info" v-for="{name, fields} in form_fields" :key="name">
       <input-container 
-          :name="inputText(required,name)" 
+          :name="inputText(required, name)" 
           :child = "field"
           :class="col"
           v-for="{field, name, col, error, blur, info,required} in fields"
@@ -104,10 +104,10 @@ export default defineComponent({
 </script>
 <style scoped>
 .form{
-  --color:var(--bright)
+  --color: rgb(85, 85, 85)
 }
 .error{
-  --color:rgb(255,50,50);
+  --color: rgb(255,50,50);
 }
 input, input:focus{
   border-color: var(--color)

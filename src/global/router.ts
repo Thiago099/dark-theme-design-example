@@ -15,11 +15,11 @@ const routes: Array<RouteRecordRaw> = [
 ]
 import cruds from './cruds'
 
-cruds.forEach(({name,data,table_fields,form_fields,title}) => {
+cruds.forEach(({name, data, table_fields, form_fields, title}) => {
   routes.push({
     path: '/'+name,
     name: name,
-    component: () => import('@/components/crud-list.vue'),
+    component: () => import('@/components/crud/list.vue'),
     props: {
       name,
       data,
@@ -30,7 +30,7 @@ cruds.forEach(({name,data,table_fields,form_fields,title}) => {
   routes.push({
     path: '/'+name+'/edit/:id',
     name: name+"edit",
-    component: () => import('@/components/crud-edit.vue'),
+    component: () => import('@/components/crud/edit.vue'),
     props: {
       name,
       data,
@@ -41,7 +41,7 @@ cruds.forEach(({name,data,table_fields,form_fields,title}) => {
 })
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 
