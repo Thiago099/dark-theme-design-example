@@ -31,43 +31,6 @@ export default defineComponent({
 
 <style scoped lang="less">
 
-.header{
-  width:100%;
-  color:white;
-  text-align:center;
-  padding:10px;
-  margin-bottom:20px;
-}
+@import 'header';
 
-.back-button{
-    float: right;
-    background-color: @medium;
-    border:1px solid @bright;
-    margin-top: -2px;
-    padding-bottom: 2px;
-    padding-right: 20px;
-    padding-left: 15px;
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-left: -60px;
-    cursor: pointer;
-    color:white;
-}
-
-.add-button{
-    font-size: 20pt;
-    float: right;
-    background-color: @medium;
-    border:1px solid @bright;
-    --margin: 15px;
-    padding-top: 10px;
-    padding-bottom: 7px;
-    padding-left: var(--margin);
-    padding-right: var(--margin);
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-left: -60px;
-    cursor: pointer;
-    color:white;
-}
 </style>
