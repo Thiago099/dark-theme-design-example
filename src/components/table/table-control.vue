@@ -143,9 +143,9 @@ export default defineComponent({
   created(){
     this.updatePagination()
   },
-   computed: {
-        ...paginationComputed
-    },
+  computed: {
+      ...paginationComputed
+  },
 })
 </script>
 
